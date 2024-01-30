@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>img2img-info</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+	<style>
+		.image-container {
+			display: flex;
+			/* 使用 flex 布局 */
+		}
+
+		.image-container img {
+			width: 200px;
+			/* 设置图片宽度 */
+			height: auto;
+			/* 让图片的高度按比例自动调整 */
+			margin-right: 10px;
+			/* 设置图片之间的右边距 */
+		}
+
+		table {
+		border-collapse: collapse;
+		}
+
+		table, th, td {
+		border: 1px solid black;
+		}
+	</style>
 </head>
+
 <body>
+
 	<body>
-	  <main class="container">
-	  	<table>
-	  	  <tbody>
-			<thead>
-				<tr>
-				  <th scope="col">id</th>
-				  <th scope="col">user_name</th>
-				  <th scope="col">job_no</th>
-				  <th scope="col">request_data</th>
-				  <th scope="col">response_images</th>
-				</tr>
-			</thead>
-			{% for item in data %}
-			<thead>
-				<tr>
-					<td>{{item[0]}}</td>
-					<td>{{item[1]}}</td>
-					<td>{{item[2]}}</td>
-					<td>{{item[3]}}</td>
-					<td>{{item[4]}}</td>
-				</tr>
-			</thead>
-			{% endfor %}
+		<main class="container">
+			<a href="/"><p>返回</p></a>
+			<table>
+				<tbody>
+					<thead>
+						<tr>
+							<th scope="col">id</th>
+							<th scope="col">user_name</th>
+							<th scope="col">job_no</th>
+							<th scope="col">request_data</th>
+							<th scope="col">input_images</th>
+							<th scope="col">output_images</th>
+							<th scope="col">response_images</th>
+						</tr>
+					</thead>
+					{% for item in data %}
+					<thead>
+						<tr>
+							<td>{{item[0]}}</td>
+							<td>{{item[1]}}</td>
+							<td>{{item[2]}}</td>
+							<td>{{item[3]}}</td>
+							<td>
+								<div class="image-container">
+									<a href="{{item[4]}}">
+										<img src="{{ item[4]}}">
+									</a>
+								</div>
+							</td>
+							<td>
+								<div class="image-container">
+									<a href="{{item[5]}}">
+										<img src="{{item[5]}}">
+									</a>
+								</div>
+							</td>
+							<td>
+								{% for img in item[6] %}
+								<div class="image-container">
+									<a href="{{img}}">
+										<img src="{{img}}">
+									</a>
+								</div>
+								{% endfor %}
+							</td>
+						</tr>
+					</thead>
+					{% endfor %}
 
 
-	  	  </tbody>
-	  	</table>
+				</tbody>
+			</table>
 
-	  </main>
+		</main>
 	</body>
 </body>
+
 </html>
