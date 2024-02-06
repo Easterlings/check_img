@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图生图列表</title>
+</head>
+<body>
+
+    <main class="container">
+        <h1>图生图列表</h1>
+        <a href="/">
+            <p>返回</p>
+        </a>
+        <ul>
+            {% for data in datas %}
+                <li>
+                    <!-- <img src="{{ image_file }}" alt="{{ image_file }}"> -->
+                    <p><a href="/img2img/{{data[0]}}" >{{data[0]}}</a>
+                    nums:{{data[1]}}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

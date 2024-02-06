@@ -28,3 +28,27 @@ if os.environ.get('DB_HOST'):
         "password" : os.environ.get('DB_PASSWORD'),
         "database" : os.environ.get('DB_DATABASE'),
     }
+
+# 展示目录
+if os.environ.get('ROOT_DIR'):
+    ROOT_DIR = os.environ.get('ROOT_DIR')
+
+# 系统端口
+if os.environ.get('PORT'):
+    PORT = os.environ.get('PORT')
+
+# 系统端口
+if os.environ.get('image_path1'):
+    image_path1 = os.environ.get('image_path1')
+if os.environ.get('sw_url1'):
+    sw_url1 = os.environ.get('sw_url1')
+if os.environ.get('image_path2'):
+    image_path2 = os.environ.get('image_path2')
+if os.environ.get('sw_url2'):
+    sw_url2 = os.environ.get('sw_url2')
+if os.environ.get('image_path3'):
+    image_path3 = os.environ.get('image_path3')
+if os.environ.get('sw_url3'):
+    sw_url3 = os.environ.get('sw_url3')
+
+start_date = "23-10-09"

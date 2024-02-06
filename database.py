@@ -108,3 +108,28 @@ class DB:
             print("An error occurred while getting records: ", str(e))
         finally:
             self._closeConnect()
+
+    def get_num_starting_with_date(self):
+        try:
+            sql = "SELECT COUNT(*) FROM {} GROUP BY DATE(created_at)".format(self.table)
+            self._connectMysql()
+            self.cursor.execute(sql)
+            result = self.cursor.fetchall()
+            return result
+        except Exception as e:
+            print("An error occurred while getting records: ", str(e))
+        finally:
+            self._closeConnect()
+
+    
+    def get_date_num_starting_with_date(self):
+        try:
+            sql = "SELECT DATE_FORMAT(created_at, '%Y-%m-%d'),COUNT(*) FROM {} GROUP BY DATE(created_at)".format(self.table)
+            self._connectMysql()
+            self.cursor.execute(sql)
+            result = self.cursor.fetchall()
+            return result
+        except Exception as e:
+            print("An error occurred while getting records: ", str(e))
+        finally:
+            self._closeConnect()
